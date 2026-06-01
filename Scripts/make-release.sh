@@ -115,6 +115,19 @@ for name in "${FRAMEWORKS[@]}"; do
   CHECKSUM_LINES+=("$name $sum")
 done
 
+# --- Refresh the Crashlytics dSYM upload tooling ------------------------------
+# The `run` + `upload-symbols` tools are version-matched to FirebaseCrashlytics
+# and are committed (not release assets) so consumers can point a build phase at
+# the resolved package checkout. Keep them in sync on every bump.
+CRASHLYTICS_SRC="$(find "$FIREBASE_DIR" -maxdepth 2 -name run -path '*FirebaseCrashlytics*' -exec dirname {} \; | head -1)"
+if [[ -n "$CRASHLYTICS_SRC" ]]; then
+  mkdir -p "$REPO_ROOT/Crashlytics"
+  ditto "$CRASHLYTICS_SRC/run" "$REPO_ROOT/Crashlytics/run"
+  ditto "$CRASHLYTICS_SRC/upload-symbols" "$REPO_ROOT/Crashlytics/upload-symbols"
+  chmod +x "$REPO_ROOT/Crashlytics/run" "$REPO_ROOT/Crashlytics/upload-symbols"
+  echo "==> Refreshed Crashlytics run + upload-symbols"
+fi
+
 # --- Regenerate Package.swift binaryTargets block -----------------------------
 # Note: keep the git call out of a pipe so a missing `origin` (returns non-zero)
 # doesn't abort the script under `set -o pipefail`.
