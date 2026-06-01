@@ -1,0 +1,41 @@
+name: Release Firebase xcframeworks
+
+# Repackages a given Firebase.zip release into one zip per xcframework,
+# uploads them as release assets, and commits the regenerated Package.swift.
+on:
+  workflow_dispatch:
+    inputs:
+      firebase_version:
+        description: "Firebase version (firebase-ios-sdk release tag), e.g. 12.14.0"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      # The default Xcode on the macos-15 image provides a Swift toolchain new
+      # enough for `swift package compute-checksum` (it only hashes the zip).
+      - name: Show Swift
+        run: xcrun swift --version
+
+      - name: Repackage, checksum, upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          Scripts/make-release.sh "${{ inputs.firebase_version }}" --upload
+
+      - name: Commit regenerated Package.swift
+        run: |
+          if ! git diff --quiet Package.swift; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add Package.swift
+            git commit -m "Firebase ${{ inputs.firebase_version }}: regenerate binaryTargets"
+            git push
+          fi

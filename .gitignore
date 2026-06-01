@@ -1,0 +1,6 @@
+.DS_Store
+.build/
+.swiftpm/
+# Per-xcframework zips produced by Scripts/make-release.sh. These are uploaded
+# as GitHub release assets, never committed (they carry symlinks and are large).
+dist/
