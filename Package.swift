@@ -74,27 +74,27 @@ let package = Package(
         .binaryTarget(
             name: "FBLPromises",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FBLPromises.xcframework.zip",
-            checksum: "2c5c8a4a4e7682c98d2762a9d1cb00083430216d61881ab691378c9ca2ecc67d"
+            checksum: "b1926b79cfb0bafa20026315cd3dc925f4d49a705ed8909e4c2f662e0dadbd7b"
         ),
         .binaryTarget(
             name: "FirebaseAnalytics",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseAnalytics.xcframework.zip",
-            checksum: "48e602b5855e6c1cd2358ed48e87d28ae164ecabf6c50f5d66278b9b6ba18e83"
+            checksum: "b9467c2fe5577b07f3a88d7ceba28b74f37607e27b87b62a03daf4a593bc1f16"
         ),
         .binaryTarget(
             name: "FirebaseCore",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseCore.xcframework.zip",
-            checksum: "58e1eca994cb5357cca1397a3a9ea5e2ad6cb9fab9c377c9f5aa30d54021f597"
+            checksum: "c13a9e8f89e56c2c4d7e0ce08c7bf0a0b60edaca63628bcdf9bf4fc2541c71a8"
         ),
         .binaryTarget(
             name: "FirebaseCoreInternal",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseCoreInternal.xcframework.zip",
-            checksum: "cc2eddfef5bf6f5d787cb700c5939830f06a3749ad98c22672b4bd640423921e"
+            checksum: "c52345f9010966ad3ec733ae16ac42429d28b24e1e5377d6c0c67379d0a963f6"
         ),
         .binaryTarget(
             name: "FirebaseInstallations",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseInstallations.xcframework.zip",
-            checksum: "3f9780059e5508546ce0c83308fe02c198dd1e7672f5a7b66bc6c7a455c76019"
+            checksum: "c9cea6147d57ab0870d82f79bfb4949daa64c9636ae3793de580fbc8da21725e"
         ),
         .binaryTarget(
             name: "GoogleAdsOnDeviceConversion",
@@ -104,57 +104,57 @@ let package = Package(
         .binaryTarget(
             name: "GoogleAppMeasurement",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/GoogleAppMeasurement.xcframework.zip",
-            checksum: "e489c85bdae63f8114f107beeea0071a2f4af7c64fd8c81d63b521004d2d76ea"
+            checksum: "76bd1c98c3d9188e8fbe587835596e7d93b96106553b15d4a9f50cf50e8ef5c4"
         ),
         .binaryTarget(
             name: "GoogleAppMeasurementIdentitySupport",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/GoogleAppMeasurementIdentitySupport.xcframework.zip",
-            checksum: "b6dc43e3ffe90da8ae204aad0beae6527ae0d14c38998055615c066e732b2e49"
+            checksum: "138305e9123f9a702af40063aa2912540f4d77896b7498a891837217b8cdeb54"
         ),
         .binaryTarget(
             name: "GoogleUtilities",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/GoogleUtilities.xcframework.zip",
-            checksum: "0ed0cb9f9f376d0e23e64604af7bde8350fc232d026bfe1fb7e69a4e6813ed30"
+            checksum: "c42ef14a7a6f3ca612f9d49c96f5a21fe0ba242befae6e0683b7d70d54ed5d37"
         ),
         .binaryTarget(
             name: "nanopb",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/nanopb.xcframework.zip",
-            checksum: "168765712a9cac1abba3708b306218a0b4112d091e053854b3caf55437d3c047"
+            checksum: "7c5ca0b698920c061afbf40e911f7e7be77ca2be7c3944dd3460a39d34ba90ff"
         ),
         .binaryTarget(
             name: "FirebaseCoreExtension",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseCoreExtension.xcframework.zip",
-            checksum: "0868554483715b00962444624919a6efc5b0974d95ffbb7110f108f76812731c"
+            checksum: "33dcc23368c379e512fa711580709e2b46ea811ca1a00a251a6eb054548363e1"
         ),
         .binaryTarget(
             name: "FirebaseCrashlytics",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseCrashlytics.xcframework.zip",
-            checksum: "259ee54284ced2e967b03cc94ac5138de7e39b6cd69822407e1135fca331c2be"
+            checksum: "e340b356815cef0788967a57d1470654a391d35778d4fc4a11e6a36c264abb70"
         ),
         .binaryTarget(
             name: "FirebaseRemoteConfigInterop",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseRemoteConfigInterop.xcframework.zip",
-            checksum: "f3f64a7318b10a14875ba513fe6b3bd0d2d4de5458f1587703adccb22c12d8b5"
+            checksum: "73667823b1b1222d812e3da6e1429472b5e61c96d1184a9c1c5581ad0a5a4ee3"
         ),
         .binaryTarget(
             name: "FirebaseSessions",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseSessions.xcframework.zip",
-            checksum: "a62a4ce2dce42773701de77450151ba11e8a57ff2ce0214bb5dacef870eb6f05"
+            checksum: "c28d1e65e1f1d435a5fe62abc1dde6134e4988f1b54d605f3f7ea798c46f42fa"
         ),
         .binaryTarget(
             name: "GoogleDataTransport",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/GoogleDataTransport.xcframework.zip",
-            checksum: "ac794fdeb718542cb3fe7689b6c7e2392f3511f7de7508e70c9ce962483039e3"
+            checksum: "7b3df8f7e3dd3c2c046001855805ddfe59098e1f7ecfa925e437cb51e2447c5b"
         ),
         .binaryTarget(
             name: "Promises",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/Promises.xcframework.zip",
-            checksum: "23c241810f523ab7983b052ed8dda1b70e4e644f31ce8c409d004a45d116f50c"
+            checksum: "4dd336ee4975d2b89761af2e2ef9dba1c336b7d642317fe432c4b8c3cbdfd55c"
         ),
         .binaryTarget(
             name: "FirebaseMessaging",
             url: "https://github.com/natanrolnik/firebase-shell/releases/download/12.14.0/FirebaseMessaging.xcframework.zip",
-            checksum: "70285d3ae90e6a19fbe4aed82d95f17da45136e41a99a24ce60bb423a20c0949"
+            checksum: "4f6dac102a69204e4bdffd35cdcfbf181621191bf4b1b8c99215287e4145aea5"
         ),
         // BINARY_TARGETS_END
     ]
