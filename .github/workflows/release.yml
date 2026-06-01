@@ -24,18 +24,31 @@ jobs:
       - name: Show Swift
         run: xcrun swift --version
 
-      - name: Repackage, checksum, upload
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          Scripts/make-release.sh "${{ inputs.firebase_version }}" --upload
+      # Step order matters: regenerate + commit + push Package.swift FIRST, then
+      # cut the release tag on that exact commit, then upload the same dist/ zips.
+      # Otherwise the tag points at a commit whose Package.swift has stale
+      # checksums and `swift package resolve` fails for consumers.
+      - name: Repackage + checksum + regenerate Package.swift
+        run: Scripts/make-release.sh "${{ inputs.firebase_version }}"
 
-      - name: Commit regenerated Package.swift
+      - name: Commit + push regenerated Package.swift
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet Package.swift; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
             git add Package.swift
             git commit -m "Firebase ${{ inputs.firebase_version }}: regenerate binaryTargets"
             git push
           fi
+
+      - name: Create release on the pushed commit + upload assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${{ inputs.firebase_version }}"
+          SHA="$(git rev-parse HEAD)"
+          if ! gh release view "$VERSION" >/dev/null 2>&1; then
+            gh release create "$VERSION" --target "$SHA" --title "Firebase $VERSION" \
+              --notes "Per-xcframework repackaging of Firebase $VERSION (firebase-ios-sdk)."
+          fi
+          gh release upload "$VERSION" dist/*.xcframework.zip --clobber
